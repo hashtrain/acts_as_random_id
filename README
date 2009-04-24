@@ -1,13 +1,14 @@
-ActAsRandomId
+ActsAsRandomId
 =============
 
-Introduction goes here.
+Generating unique random id for ActiveRecord models
 
 
 Example
 =======
 
-Example goes here.
+class Comment < ActiveRecord::Base
+  acts_as_random_id
+end
 
-
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+Copyright (c) 2009 hashtrain.com, released under the MIT license

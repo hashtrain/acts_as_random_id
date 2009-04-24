@@ -10,14 +10,14 @@ require 'rake/gempackagetask'
 desc 'Default: run unit tests.'
 task :default => :test
 
-desc 'Test the act_as_random_id plugin.'
+desc 'Test the acts_as_random_id plugin.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
   t.pattern = 'test/**/*_test.rb'
   t.verbose = true
 end
 
-desc 'Generate documentation for the act_as_random_id plugin.'
+desc 'Generate documentation for the acts_as_random_id plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'ActAsRandomId'
@@ -37,7 +37,7 @@ PKG_FILES = FileList[
 ]
 
 spec = Gem::Specification.new do |s| 
-   s.name             = "act_as_random_id" 
+   s.name             = "acts_as_random_id" 
    s.version          = "0.0.1"
    s.author           = "hashtrain.com and author idea Stanislav Pogrebnyak"
    s.email            = "mail@hashtrain.com"

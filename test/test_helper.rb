@@ -7,8 +7,8 @@ require File.expand_path(File.join(ENV['RAILS_ROOT'], 'config/environment.rb'))
 def load_schema
   config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
   ActiveRecord::Base.logger = Logger.new(File.dirname(__FILE__) + "/debug.log") 
-  
-  db_adapter = ENV['DB']
+
+  db_adapter = ENV['DB'] || 'mysql'
   
   # no db passed, try one of these fine config-free DBs before bombing.  
   db_adapter ||= 
