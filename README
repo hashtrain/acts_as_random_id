@@ -7,8 +7,16 @@ Generating unique random id for ActiveRecord models
 Example
 =======
 
-class Comment < ActiveRecord::Base
-  acts_as_random_id
-end
+  class Comment < ActiveRecord::Base
+    acts_as_random_id
+  end
+  
+  class Group < ActiveRecord::Base
+    acts_as_random_id :generator => :auto_increment
+  end
+  
+  class Article < ActiveRecord::Base
+    acts_as_random_id :generator => Proc.new { Time.now.to_i }
+  end
 
 Copyright (c) 2009 hashtrain.com, released under the MIT license

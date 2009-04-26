@@ -20,7 +20,7 @@ end
 desc 'Generate documentation for the acts_as_random_id plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'ActAsRandomId'
+  rdoc.title    = 'ActsAsRandomId'
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
@@ -38,7 +38,7 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s| 
    s.name             = "acts_as_random_id" 
-   s.version          = "0.0.1"
+   s.version          = "0.1.2"
    s.author           = "hashtrain.com and author idea Stanislav Pogrebnyak"
    s.email            = "mail@hashtrain.com"
    s.homepage         = "http://hashtrain.com/"
