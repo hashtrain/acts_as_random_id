@@ -19,4 +19,4 @@ Example
     acts_as_random_id :generator => Proc.new { Time.now.to_i }
   end
 
-Copyright (c) 2009 hashtrain.com, released under the MIT license
+Copyright (c) 2009 hashtrain.com and author idea Stanislav Pogrebnyak (stanislav.pogrebnyak@gmail.com), released under the MIT license
