@@ -1,4 +1,4 @@
 #ignore eclipse project settings
 .project
 
-test/debug.log
+*.log
