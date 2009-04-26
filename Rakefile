@@ -38,10 +38,10 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s| 
    s.name             = "acts_as_random_id" 
-   s.version          = "0.1.2"
+   s.version          = "0.1.2.3"
    s.author           = "hashtrain.com and author idea Stanislav Pogrebnyak"
    s.email            = "mail@hashtrain.com"
-   s.homepage         = "http://hashtrain.com/"
+   s.homepage         = "http://github.com/hashtrain/acts_as_random_id/"
    s.platform         = Gem::Platform::RUBY
    s.summary          = "Generate a random id for ActiveRecord models"
    s.files            = PKG_FILES.to_a
