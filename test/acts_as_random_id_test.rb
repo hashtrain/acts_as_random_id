@@ -7,35 +7,33 @@ class ActsAsRandomIdTest < Test::Unit::TestCase
   class Comment < ActiveRecord::Base
     acts_as_random_id
   end
-  
+
   class Group < ActiveRecord::Base
-    acts_as_random_id :generator => :auto_increment
+    acts_as_random_id do
+      rand(9) + 1
+    end
   end
   
   class Article < ActiveRecord::Base
-    acts_as_random_id :generator => Proc.new { Time.now.to_i }
+    acts_as_random_id do
+      Time.now.to_i
+    end
   end
-
-  def test_should_empty
-    assert_equal [], Comment.all
-  end
-  
-  def test_type_random_id
-    assert Comment.generate_random_id
+ 
+  def test_random_id
     assert Comment.create
   end
-  
-  def test_type_auto_incriment
-    assert Group.generate_random_id
-    g1 = Group.create
-    g2 = Group.create
-    
-    assert g1.id < g2.id 
+
+  def test_generator_rand_9
+    9.times do 
+      g = Group.create
+      assert g.id <= 9 && g.id > 0
+    end
   end
-  
-  def test_generator_proc
-    puts Article.generate_random_id
-    assert Article.generate_random_id
+
+  def test_generator_with_time_now
+    a = Article.create
+    assert_equal Time.now.to_i, a.id
   end
 
 end

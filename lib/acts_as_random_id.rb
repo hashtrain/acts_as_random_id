@@ -1,49 +1,28 @@
 module ActsAsRandomId
+
   def self.included(base)
-    base.send :extend, ClassMethods 
+    base.send :extend, ClassMethods
+    
+    def ensure_unique_id
+      begin
+        self.id = yield
+      end while self.class.exists?(:id => self.id)
+    end
   end
 
-  module ClassMethods 
-    def acts_as_random_id(options = {})
-      cattr_accessor :random_id_generator 
-      before_create  :generate_random_id
-
-      self.random_id_generator = (options[:generator] || :random_id)
-
-      def generate_random_id
-        if self.random_id_generator.is_a?(Proc)
-          self.random_id_generator.call
-        elsif self.random_id_generator == :auto_increment
-          self.auto_increment
+  module ClassMethods
+    def acts_as_random_id(options={}, &block)
+      before_create do |record|
+        if block
+          record.ensure_unique_id(&block)
         else
-          self.random_id
+          record.ensure_unique_id do
+            rand(2_147_483_647) + 1 #- mysql type "int 4 bytes"
+          end
         end
       end
-
-      protected
-      def auto_increment
-        current_id  = ActiveRecord::Base.connection.select_value("SELECT max(#{self.primary_key}) FROM #{self.table_name}").to_i
-        current_id += rand(10) + 1
-      end
-
-      def random_id
-        begin
-          rand_id = rand(2_147_483_647) + 1 #- mysql type "int 4 bytes"
-        end until ActiveRecord::Base.connection.select_value("SELECT #{self.primary_key} FROM #{self.table_name} WHERE #{self.primary_key} = #{rand_id}").blank?
-        rand_id
-      end
-
-      send :include, InstanceMethods
     end
   end
-
-  module InstanceMethods
-    protected
-    def generate_random_id
-      self.id = self.class.generate_random_id
-    end
-  end
-
 end
 
 ActiveRecord::Base.send :include, ActsAsRandomId

@@ -38,7 +38,7 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s| 
    s.name             = "acts_as_random_id" 
-   s.version          = "0.1.2.3"
+   s.version          = "1.0.0"
    s.author           = "hashtrain.com and author idea Stanislav Pogrebnyak (stanislav.pogrebnyak@gmail.com)"
    s.email            = "mail@hashtrain.com"
    s.homepage         = "http://github.com/hashtrain/acts_as_random_id/"
