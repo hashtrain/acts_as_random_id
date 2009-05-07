@@ -3,4 +3,4 @@
 
 pkg
 
-*.log
+#*.log
