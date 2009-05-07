@@ -1,6 +1,6 @@
 #ignore eclipse project settings
 .project
 
-#pkg
+pkg
 
 *.log
