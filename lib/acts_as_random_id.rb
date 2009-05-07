@@ -17,7 +17,7 @@ module ActsAsRandomId
           record.ensure_unique_id(&block)
         else
           record.ensure_unique_id do
-            rand(2_147_483_647) + 1 #- mysql type "int 4 bytes"
+            rand(2_147_483_647) + 1 # mysql and SQLite type integer
           end
         end
       end
