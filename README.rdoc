@@ -15,7 +15,7 @@ Generating unique random id for ActiveRecord models
   end
 
   class Article < ActiveRecord::Base
-    acts_as_random_id do
+    acts_as_random_id :field => :secure_identifier do
       Time.now.to_i
     end
   end
