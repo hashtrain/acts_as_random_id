@@ -7,6 +7,12 @@ class ActsAsRandomIdTest < Test::Unit::TestCase
   class Comment < ActiveRecord::Base
     acts_as_random_id
   end
+  
+  class Payment < ActiveRecord::Base
+    acts_as_random_id :field => :secure_identifier do
+      Time.now.to_i
+    end
+  end
 
   class Group < ActiveRecord::Base
     acts_as_random_id do
@@ -36,4 +42,8 @@ class ActsAsRandomIdTest < Test::Unit::TestCase
     assert_equal Time.now.to_i, a.id
   end
 
+  def test_should_assign_custom_field
+    p = Payment.create
+    assert_equal Time.now.to_i, p.secure_identifier
+  end
 end
