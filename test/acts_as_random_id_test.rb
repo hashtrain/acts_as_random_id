@@ -7,7 +7,7 @@ class ActsAsRandomIdTest < Test::Unit::TestCase
   class Comment < ActiveRecord::Base
     acts_as_random_id
   end
-  
+
   class Payment < ActiveRecord::Base
     acts_as_random_id :field => :secure_identifier do
       Time.now.to_i
@@ -19,19 +19,19 @@ class ActsAsRandomIdTest < Test::Unit::TestCase
       rand(9) + 1
     end
   end
-  
+
   class Article < ActiveRecord::Base
     acts_as_random_id do
       Time.now.to_i
     end
   end
- 
+
   def test_random_id
     assert Comment.create
   end
 
   def test_generator_rand_9
-    9.times do 
+    9.times do
       g = Group.create
       assert g.id <= 9 && g.id > 0
     end

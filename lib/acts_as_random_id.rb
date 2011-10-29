@@ -2,7 +2,7 @@ module ActsAsRandomId
 
   def self.included(base)
     base.send :extend, ClassMethods
-    
+
     def ensure_unique_id(options)
       begin
         self.send "#{options[:field]}=", yield
