@@ -36,8 +36,8 @@ PKG_FILES = FileList[
   'test/**/*'
 ]
 
-spec = Gem::Specification.new do |s| 
-   s.name             = "acts_as_random_id" 
+spec = Gem::Specification.new do |s|
+   s.name             = "acts_as_random_id"
    s.version          = "1.1.0"
    s.author           = "hashtrain.com and author idea Stanislav Pogrebnyak (stanislav.pogrebnyak@gmail.com)"
    s.email            = "mail@hashtrain.com"
@@ -53,4 +53,4 @@ end
 desc 'Turn this plugin into a gem.'
 Rake::GemPackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
-end 
+end

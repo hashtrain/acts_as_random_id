@@ -29,7 +29,7 @@ Generating unique random id for ActiveRecord models
 As you know rails generates field ID easy auto_incriment. Thus, there is an opportunity to check how many objects in the DB. Sometimes it's secret information.
 
 Using the plugin "acts_as_random_id" could generate a unique value id. Generation of ID will be until you will find a unique value ID. Of course you go to the full responsibility for the range.
-	
+
 By default, the plugin "acts_as_random_id" generates a unique id in the range of 1 to 2_147_483_647 (mysql and SQLite type integer)
 
   class Comment < ActiveRecord::Base
@@ -44,6 +44,6 @@ You can specify a range of transfer method "acts_as_random_id" block where the g
     end
   end
 
-==License 
+==License
 
 Copyright (c) 2009 hashtrain.com and author idea Stanislav Pogrebnyak (stanislav.pogrebnyak@gmail.com), released under the MIT license.

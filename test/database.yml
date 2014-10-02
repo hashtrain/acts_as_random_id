@@ -15,7 +15,7 @@ development:
   adapter: mysql
   database: acts_as_random_id_development
   username: root
-  password: 
+  password:
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as 'test' will be erased and
@@ -32,5 +32,5 @@ production:
   adapter: mysql
   database: acts_as_random_id_production
   username: root
-  password: 
+  password:
   socket: /var/run/mysqld/mysqld.sock
